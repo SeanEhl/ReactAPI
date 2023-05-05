@@ -114,6 +114,7 @@ const App = () => {
         </nav>
 
         <Routes>
+          <Route path="/" exact element={<Home/>} />
           <Route path="/stock" element={<StockData/>} />
         </Routes>
       </div>
