@@ -1,0 +1,6 @@
+[[redirects]]
+  from = "/api/*"
+  to = "https://tradestie.com/api/v1/apps/reddit"
+  status = 200
+  force = true # COMMENT: ensure that we always redirect
+  headers = {X-From = "Netlify"}
