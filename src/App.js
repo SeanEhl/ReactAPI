@@ -64,7 +64,7 @@ const StockData = () => {
 
   React.useEffect(() => {
     const fetchData = async () => {
-      const response = await fetch('https://tradestie.com/api/v1/apps/reddit');
+      const response = await fetch('/api/v1/apps/reddit');
       const data = await response.json();
       setData(data);
       setIsLoading(false);
@@ -87,8 +87,10 @@ const StockData = () => {
       <ul>
         {data.map((data) => (
           <li key={data.sentiment_score}>
-            sentiment score: {data.sentiment_score}
-            sentiment: {data.sentiment}
+            <br/># of comments: {data.no_of_comments}
+            <br/>sentiment score: {data.sentiment_score}
+            <br/>sentiment: {data.sentiment}
+            <br/>Stock: ${data.ticker}
           </li>
         ))}
       </ul>
@@ -106,13 +108,12 @@ const App = () => {
               <Link to="/">Home</Link>
             </li>
             <li>
-              <Link to="/stock">StockData</Link>
+              <Link to="/stock">Meme stocks from reddit/wallstreetbets</Link>
             </li>
           </ul>
         </nav>
 
         <Routes>
-          <Route path="/" exact element={<Home/>} />
           <Route path="/stock" element={<StockData/>} />
         </Routes>
       </div>
